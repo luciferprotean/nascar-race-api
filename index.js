@@ -1,11 +1,11 @@
-const express = require('express');
-    const app = express();
-    const port = 3000;
+const express = require("express");
+const driverData = require("./driverNames.json"); // Works directly
 
-    app.get('/', (req, res) => {
-      res.send('Hello World from Express!');
-    });
+const app = express();
+const PORT = 3000;
 
-    app.listen(port, () => {
-      console.log(`Express app listening at http://localhost:${port}`);
-    });
+app.get("/drivers", (req, res) => {
+  res.json(driverData);
+});
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
